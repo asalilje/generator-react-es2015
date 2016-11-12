@@ -19,3 +19,7 @@ To test a generator locally:
 - Clone the generator: `git clone https://github.com/asalilje/generator-react-es2015.git`.
 - Stand in the folder of the generator and create a global symlink to the local generator: `npm link`.
 - Now you can edit the code and run the generator from your local machine: `yo react-es2015`.
+
+
+To uninstall the generator:
+`npm uninstall -g generator-react-es2015`
