@@ -65,18 +65,18 @@ module.exports = generators.Base.extend({
             );
         },
 
-        hiddenfiles: function () {
-            this.log(chalk.magenta("Copying hidden files..."));
+        config: function () {
+            this.log(chalk.magenta("Copying config files..."));
             this.fs.copy(
-                this.templatePath('./app/_eslintrc'),
+                this.templatePath('./config/_eslintrc'),
                 this.destinationPath('.eslintrc')
             );
             this.fs.copy(
-                this.templatePath('./app/_babelrc'),
+                this.templatePath('./config/_babelrc'),
                 this.destinationPath('.babelrc')
             );
             this.fs.copy(
-                this.templatePath('./app/_gitignore'),
+                this.templatePath('./config/_gitignore'),
                 this.destinationPath('.gitignore')
             );
         },
