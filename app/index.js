@@ -11,7 +11,7 @@ module.exports = generators.Base.extend({
 
     prompting: function () {
         this.log(yosay(
-            'Welcome to the astonishing ' + chalk.magenta('React ES2016') + ' generator!'
+            'Welcome to the astonishing ' + chalk.magenta('React ES2015') + ' generator!'
         ));
 
         var prompts = [{
@@ -68,15 +68,15 @@ module.exports = generators.Base.extend({
         hiddenfiles: function () {
             this.log(chalk.magenta("Copying hidden files..."));
             this.fs.copy(
-                this.templatePath('./app/.eslintrc'),
+                this.templatePath('./app/_eslintrc'),
                 this.destinationPath('.eslintrc')
             );
             this.fs.copy(
-                this.templatePath('./app/.babelrc'),
+                this.templatePath('./app/_babelrc'),
                 this.destinationPath('.babelrc')
             );
             this.fs.copy(
-                this.templatePath('./app/.gitignore'),
+                this.templatePath('./app/_gitignore'),
                 this.destinationPath('.gitignore')
             );
         },
