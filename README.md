@@ -6,7 +6,7 @@ Tasks are defined up in the package.json file and run as NPM tasks.
 
 A stub for a mock api via ajax request is included. The option to include testing using Mocha, Enzyme and Expect is given in the generator.
 
-To create a site using Yeoman:
+### To create a site using Yeoman:
 - Install Yeoman: `npm install -g yo`.
 - Install the generator: `npm install -g https://github.com/asalilje/generator-react-es2015.git`.
 - Run the generator in the folder where you want your new site: `yo react-es2015`.
@@ -15,11 +15,11 @@ To create a site using Yeoman:
 - The sample site should open on http://localhost:8080, with lint and optionally tests run in the shell.
 
 
-To test a generator locally:
+### To test a generator locally:
 - Clone the generator: `git clone https://github.com/asalilje/generator-react-es2015.git`.
 - Stand in the folder of the generator and create a global symlink to the local generator: `npm link`.
 - Now you can edit the code and run the generator from your local machine: `yo react-es2015`.
 
 
-To uninstall the generator:
+### To uninstall the generator:
 `npm uninstall -g generator-react-es2015`
