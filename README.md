@@ -6,6 +6,8 @@ Tasks are defined up in the package.json file and run as NPM tasks.
 
 A stub for a mock api via ajax request is included. The option to include testing using Mocha, Enzyme and Expect is given in the generator.
 
+There is also a simple webpack production config doing minifying without source maps, and a build:prod NPM task that starts the production app in an express server. This is to make sure it looks and behaves as intended when served from the file system.
+
 ### To create a site using Yeoman:
 - Install Yeoman: `npm install -g yo`.
 - Install the generator: `npm install -g https://github.com/asalilje/generator-react-es2015.git`.
