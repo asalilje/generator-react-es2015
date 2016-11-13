@@ -21,7 +21,8 @@ var config = {
     filename: 'bundle.js'
   },
   devServer: {
-    contentBase: path.resolve(__dirname, 'dist')
+    contentBase: path.resolve(__dirname, 'dist'),
+    host: '0.0.0.0'
   },
   plugins: [
     new webpack.DefinePlugin(GLOBALS)
