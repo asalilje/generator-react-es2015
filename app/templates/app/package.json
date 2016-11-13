@@ -8,10 +8,14 @@
     "test": "mocha --spec progress ./tools/testSetup.js \"src/**/*.test.js\"",
     "test:dev": "npm test -- --watch",<% } else { %>
     "build:dev": "npm run clean-dist && concurrently \"npm run copy:dev\" \"npm run open:dev\" \"npm run lint:dev\" \"npm run webpack:dev\"", <% } %>
+    "build:prod": "npm run clean-dist && concurrently \"npm run copy:prod\" \"npm run lint\" \"npm run test\" \"npm run webpack:prod\" && npm run open:prod",
     "webpack:dev": "webpack-dev-server --config webpack.dev.config.js --inline --hot",
+    "webpack:prod": "webpack --config webpack.prod.config.js",
     "clean-dist": "rimraf ./dist && mkdir dist",
     "copy:dev": "babel-node ./tools/copyFiles.dev.js",
+    "copy:prod": "babel-node ./tools/copyFiles.prod.js",
     "open:dev": "babel-node ./tools/openSite.dev.js",
+    "open:prod": "babel-node ./tools/openSite.prod.js",
     "lint": "esw src tools",
     "lint:dev": "npm run lint -- --watch"
   },
@@ -39,6 +43,7 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-react": "^6.6.0",
     "eslint-watch": "^2.1.14",
+    "express": "^4.14.0",
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
     "ncp": "^2.0.0",
