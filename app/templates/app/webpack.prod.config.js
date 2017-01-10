@@ -1,9 +1,14 @@
 var webpack = require('webpack');
 var path = require('path');
 
+var applicationName = "<%= projectName %>";
+
 var GLOBALS = {
   config: {
     apiUrl: JSON.stringify('./mock-api.json')
+  },
+  'process.env': {
+    NODE_ENV: JSON.stringify('production')
   }
 };
 
@@ -16,7 +21,7 @@ var config = {
   output: {
     path: __dirname + '/dist',
     publicPath: '/',
-    filename: 'bundle.js'
+    filename: applicationName + '.js'
   },
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
@@ -27,7 +32,8 @@ var config = {
   module: {
     loaders: [
       { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" },
-      { test: /\.(css|less)$/, loader: "style!css?modules&importLoaders=1&localIdentName=project_[local]!less" }
+      { test: /\.(css|less)$/, loader: "style!css?modules&importLoaders=1&localIdentName=" + applicationName + "_[local]!less" },
+      { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url-loader?limit=10000&mimetype=image/svg+xml' }
     ]
   },
 };

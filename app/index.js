@@ -18,14 +18,19 @@ module.exports = generators.Base.extend({
             name: 'projectName',
             message: 'What would you like to call your project?',
             validate: function (input) {
-                var pattern = new RegExp("[^a-z|-]");
+                var pattern = new RegExp("[^a-z|A-Z|-]");
                 if (pattern.test(input)) {
-                    return "Sorry, only small letters and dashes allowed!";
+                    return "Sorry, only letters and dashes allowed!";
                 }
                 else {
                     return true;
                 }
             }
+        },
+        {
+            type: 'confirm',
+            name: 'includeRedux',
+            message: 'Do you want to use Redux?',
         },
         {
             type: 'confirm',
@@ -36,6 +41,7 @@ module.exports = generators.Base.extend({
         return this.prompt(prompts).then(function (answers) {
             this.projectName = answers.projectName;
             this.includeMocha = answers.includeMocha;
+            this.includeRedux = answers.includeRedux;
         }.bind(this));
     },
 
@@ -75,9 +81,10 @@ module.exports = generators.Base.extend({
                 this.templatePath('./config/_babelrc'),
                 this.destinationPath('.babelrc')
             );
-            this.fs.copy(
+            this.fs.copyTpl(
                 this.templatePath('./config/_gitignore'),
-                this.destinationPath('.gitignore')
+                this.destinationPath('.gitignore'),
+                this
             );
         },
 

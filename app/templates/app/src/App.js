@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
 import {DoRequest} from './ajax';
-import Styles from './styles.less';
+import Styles from './styles/main.less';
 
 class App extends React.Component {
 
