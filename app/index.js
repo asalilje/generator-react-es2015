@@ -101,6 +101,27 @@ module.exports = generators.Base.extend({
                 );
             }
         },
+
+        redux: function() {
+            if (this.includeRedux) {
+                 this.log(chalk.magenta("Copying Redux files..."));
+                 this.fs.copy(
+                    this.templatePath('./redux'),
+                    this.destinationPath('./src')
+                );
+                
+            }
+        },
+
+        moveReduxStyle: function() {
+            this.log(chalk.magenta("Moving Redux styles..."));
+            if (this.includeRedux) {
+                this.fs.move(
+                    this.destinationPath('./src/todo.less'),
+                    this.destinationPath('./src/styles/todo.less')
+                );
+            }
+        }
     },
 
     install: function () {
