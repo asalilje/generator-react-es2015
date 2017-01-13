@@ -1,3 +1,4 @@
+import 'babel-polyfill';
 import React, {PropTypes} from 'react';
 import Styles from './styles/main.less';<% if (!includeRedux) { %>
 import {DoRequest} from './ajax'; <% } else { %>
