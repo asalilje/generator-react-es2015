@@ -48,7 +48,7 @@ class App extends React.Component {
 }
 
 App.propTypes = {
-  name: PropTypes.string.isRequired
+  name: PropTypes.string
 };
 
 export default App;

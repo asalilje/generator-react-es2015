@@ -8,11 +8,5 @@ export default function configureStore() {
         todoFilter
     });
 
-    if (process.env.NODE_ENV === "production") {
-
-    }
-    else {
-
-    }
     return createStore(reducers);
-};
+}

@@ -14,4 +14,4 @@ export const todoFilterOptions = {
     SHOW_ALL: "SHOW_ALL",
     SHOW_TODO: "SHOW_TODO",
     SHOW_DONE: "SHOW_DONE"
-}
+};

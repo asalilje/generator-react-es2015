@@ -1,7 +1,5 @@
-import todoFilter from './todoFilter';
-import {todoFilterOptions} from './todoFilter';
+import todoFilter, {todoFilterOptions} from './todoFilter';
 import expect from 'expect';
-import {types} from '../actions/actionTypes';
 import * as actions from '../actions/todoFilterActions';
 
 describe("todoFilter", () => {

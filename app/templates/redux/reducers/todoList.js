@@ -20,4 +20,4 @@ export default function todoList(state = [], action) {
         default: 
             return state;
     }
-};
+}
