@@ -1,25 +1,7 @@
-import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import * as todoListActions from './actions/todoListActions';
 import { todoFilterOptions } from './reducers/todoFilter';
 import TodoList from './TodoList';
-
-class FilteredTodoList extends React.Component {
-    render() {
-        const props = this.props;
-
-        return (
-            <TodoList
-                todoList={props.todoList}
-                onClick={props.onClick} />
-        );
-    }
-}
-
-FilteredTodoList.propTypes = {
-    todoList: PropTypes.array,
-    onTodoClick: PropTypes.func
-};
 
 const filterTodoList = (todoList, todoFilter) => {
     switch (todoFilter) {
@@ -32,16 +14,18 @@ const filterTodoList = (todoList, todoFilter) => {
     }
 };
 
-const mapStateToProps = (state, ownProps) => {
-    return {
-        todoList: filterTodoList(state.todoList, state.todoFilter)
-    };
-};
+const mapStateToProps = (state) => ({
+  todoList: filterTodoList(state.todoList, state.todoFilter),
+});
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        onClick: id => dispatch(todoListActions.toggleTodoItem(id))
-    };
-};
+const mapDispatchToProps = (dispatch) => ({
+  onClick(id) {
+    dispatch(todoListActions.toggleTodoItem(id));
+  },
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(FilteredTodoList);
+const FilteredTodoList = connect(
+  mapStateToProps,
+  mapDispatchToProps)(TodoList);
+
+export default FilteredTodoList;
