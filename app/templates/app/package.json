@@ -8,7 +8,7 @@
     "test": "mocha --spec progress ./tools/testSetup.js \"src/**/*.test.js\"",
     "test:dev": "npm test -- --watch",<% } else { %>
     "build:dev": "npm run clean-dist && concurrently \"npm run copy:dev\" \"npm run open:dev\" \"npm run lint:dev\" \"npm run webpack:dev\"", <% } %>
-    "build:prod": "npm run clean-dist && concurrently \"npm run copy:prod\" \"npm run lint\" \"npm run test\" \"npm run webpack:prod\" && npm run open:prod",
+    "build:prod": "npm run clean-dist && npm run copy:prod && npm run lint && npm run test && npm run webpack:prod && npm run open:prod",
     "webpack:dev": "webpack-dev-server --config webpack.dev.config.js --inline --hot",
     "webpack:prod": "webpack --config webpack.prod.config.js",
     "clean-dist": "rimraf ./dist && mkdir dist",
